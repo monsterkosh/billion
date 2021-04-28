@@ -19,6 +19,10 @@ const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
+  const closeMobileMenu = () => {
+    setClick(false);
+  };
+
   const handleClick = () => {
     setClick(!click);
   };
@@ -42,7 +46,7 @@ const Navbar = () => {
       <IconContext.Provider value={{ color: '#fff' }}>
         <Nav>
           <NavbarContainer>
-            <NavLogo to='/'>
+            <NavLogo to='/' onClick={closeMobileMenu}>
               <NavIcon />
               BILLION
             </NavLogo>
@@ -58,9 +62,6 @@ const Navbar = () => {
               </NavItem>
               <NavItem>
                 <NavLinks to='/products'>Products</NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to='/services'>Services</NavLinks>
               </NavItem>
               <NavItemBtn>
                 {button ? (
